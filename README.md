@@ -1,41 +1,41 @@
 [Email](mailto:nicola.agresti97@gmail.com) / [LinkedIn](https://www.linkedin.com/in/nicolaagresti/) / [GitHub](https://github.com/agrestinicola) / [CV](https://github.com/agrestinicola/cv/blob/gh-pages/CV_AgrestiNicola.pdf?utm_source=google&utm_medium=cta&utm_campaign=mycvpdf)
 
-_Con diversi anni di esperienza nell'e-commerce, ho sviluppato una solida competenza nell'integrazione e gestione di strumenti e piattaforme chiave che alimentano questo settore. Ho lavorato in sinergia con team e partner su temi strategici come CRM, PIM, AWS, API, Adobe Commerce, metodi di pagamento, marketplaces, ERP, WMS, GA4, Google Tag Manager, Meta ecc. acquisendo una visione a 360° delle dinamiche e delle tecnologie che fanno funzionare questo mondo._ <br>
+_Con diversi anni di esperienza nell'e-commerce, ho sviluppato una solida competenza nell'integrazione e gestione di strumenti e piattaforme chiave che alimentano questo settore. Ho lavorato in sinergia con team e partner su temi strategici acquisendo una visione a 360° delle dinamiche e delle tecnologie che fanno funzionare questo mondo._ <br>
 
 ## 👨‍💻 Esperienza Professionale
 **Digital Technologies Specialist** [Passione Beauty SPA](https://www.passionebeauty.com/it_it/) _(11 Marzo 2024 - Presente)_ <br>
-• Supportare le attività legate al sito web e app e-Commerce (AdobeCommerce), dal monitoraggio delle integrazioni e del funzionamento delle piattaforme al supporto delle funzioni aziendali coinvolte; <br>
-• Supportare le attività legate al progetto CRM & Marketing automation (Hubspot), coordinandosi con le funzioni aziendali ed il partner coinvolto nel progetto; <br> 
-• Supportare il responsabile sul progetto PIM (Product Information Management), coordinandosi con le funzioni marketing ed R&D e con il partner coinvolto nel progetto; <br> 
-• Proporre migliorie delle procedure al proprio responsabile/agenzie; <br> 
-• Gestire e risolvere le richieste di assistenza da parte degli utenti, tramite ticket o supporto telefonico; <br> 
-• Monitorare lo stato di avanzamento delle richieste, garantendo adeguato livello di SLA; <br> 
-• Redigere la documentazione di supporto all'utilizzo delle piattaforme adottate;<br> 
-  - **_Tecnologie Usate:_** AdobeCommerce (Magento), Hubspot, HiPay, PayPal, Klarna, Scalapay, Microsoft Dynamics 365 Business Central, PIM, Microsoft Power BI, GA4, Google Tag Manager, Meta Business Suite, AWS, Zendesk, ecc.
+• Gestione operativa della piattaforma e-Commerce (AdobeCommerce) e dell’App mobile<br>
+• Coordinamento del progetto di rinnovamento completo del frontend e-Commerce/App, in collaborazione con team interni e fornitori esterni<br>
+• Supporto alla migrazione da HiPay a Stripe con attività di testing, validazione post-migrazione e assistenza agli utenti interni<br>
+• Supervisione di progetti CRM e Marketing Automation basati su Hubspot, con focus su automazione e segmentazione<br>
+• Gestione operativa della transizione da Zendesk a Hubspot per il Customer Care con migrazione dati, configurazione delle pipeline di supporto e validazione del sistema<br>
+• Integrazione operativa di un nuovo sistema PIM, con coinvolgimento diretto dei reparti marketing, R&D e partner tecnico<br>
+• Manutenzione e aggiornamento dei dati prodotto all’interno del sistema PIM<br>
+• Gestione e risoluzione delle richieste di assistenza tramite ticketing system e supporto diretto agli utenti<br>
+• Redazione di documentazione tecnica e revisione dei processi digitali per migliorarne l’efficienza<br>
+  - **_Tecnologie Usate:_** AdobeCommerce (Magento), Hubspot, HiPay, Stripe, PayPal, Klarna, Scalapay, Microsoft Dynamics 365 Business Central, PIM, Microsoft Power BI, GA4, GTM, Meta Business Suite, AWS, Zendesk
 
 **Digital Technologies Support** [Athena SPA](https://www.athena.eu/it-it/) _(30 Novembre 2020 - 08 Marzo 2024)_ <br>
-• Supportare le attività legate al progetto e-Commerce e marketplaces (tramite Lengow), dal monitoraggio delle integrazioni e del funzionamento della piattaforma al supporto delle funzioni aziendali coinvolte, facilitando la transizione ad un'unica piattaforma aziendale di commercio elettronico;<br>
-• Supportare le attività legate al progetto CRM (Creatio), coordinandosi con le funzioni aziendali ed il partner coinvolto nel progetto; <br>
-• Supportare il responsabile sul progetto PIM (Product Information Management), coordinandosi con le funzioni marketing ed R&D e con il partner coinvolto nel progetto;<br>
-• Supportare operativamente per il progetto di gestione digitale dei resi (tramite Creatio), coordinandosi con le funzioni aziendali ed il partner coinvolto nel progetto;<br>
-• Gestire le richieste di assistenza da parte degli utenti, tramite ticket o supporto telefonico;<br>
-• Monitorare lo stato di avanzamento delle richieste, garantendo adeguato livello di SLA;<br>
-• Risolvere piccole problematiche degli utenti e proporre migliorie delle procedure al proprio responsabile/agenzie;<br>
-• Redigere la documentazione di supporto all'utilizzo delle piattaforme adottate;<br>
-  - **_Tecnologie Usate:_** Creatio, Zoho Desk, Stripe, PayPal, Diapason Due, PIM, OMS, Boomi, e-Commerce Backoffice, Landingi, Excel, Lengow, Station, eBay, Amazon Seller Central, Mirakl.
+• Gestione e ottimizzazione delle piattaforme e-Commerce e marketplace (Amazon, eBay, Mirakl)<br>
+• Coordinamento e implementazione di un nuovo sistema CRM (Creatio), in sinergia con team aziendali e fornitore esterno<br>
+• Integrazione operativa di un nuovo sistema PIM, con coinvolgimento diretto di team marketing, R&D e partner tecnico<br>
+• Migrazione operativa a un nuovo sistema OMS, con coinvolgimento dei partner tecnici<br>
+• Interfaccia costante con i reparti marketing e R&D per la configurazione e ottimizzazione del sistema PIM<br>
+• Supporto tecnico agli utenti finali e redazione di documentazione funzionale e procedurale<br>
+  - **_Tecnologie Usate:_** Creatio, Zoho Desk, Stripe, PIM, OMS, Boomi, Lengow, eBay, Amazon Seller Central, Mirakl
 
 **Tirocinio** [Università degli Studi di Verona](https://www.di.univr.it/?ent=cs&id=420&tcs=N) _(Agosto 2020 - Settembre 2020)_ <br>
-· Analisi dei dati da Twitter per individuare il livello di partecipazione nella composizione dei Tweet da parte degli autori.
+• Analisi dei dati da Twitter per individuare il livello di partecipazione nella composizione dei Tweet da parte degli autori.
   - **_Tecnologie Usate:_** Python, PostreSQL, PgAdmin, Excel, LaTex.
 
 **Stage** [CRM Village](https://crmvillage.biz/) _(Gennaio 2016 - Febbraio 2016)_ <br>
-· Gestione di ticket ed assistenza tecnica di primo livello.
+• Gestione di ticket ed assistenza tecnica di primo livello.
 
 **Stage** [Irideos (ex Infracom)](https://irideos.it/) _(Maggio 2015 - Giugno 2015)_ <br>
-· Gestione di ticket ed assistenza tecnica di primo livello.
+• Gestione di ticket ed assistenza tecnica di primo livello.
 
 **Stage** [Brun Telecomunicazioni](http://www.brunsat.it/) _(Marzo 2014 - Aprile 2014)_ <br>
-· Tecnico riparatore ed assistenza tecnica di primo livello.
+• Tecnico riparatore ed assistenza tecnica di primo livello.
 
 * * *
 
