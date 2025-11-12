@@ -6,7 +6,7 @@ _Appassionato di innovazione digitale e di e-commerce, negli anni ho costruito u
 **Digital Technologies Specialist** [Passione Beauty SPA](https://www.passionebeauty.com/it_it/) _(11 Marzo 2024 - Presente)_ <br>
 • Gestione operativa della piattaforma e-Commerce (AdobeCommerce) e dell’App mobile<br>
 • Coordinamento del progetto di rinnovamento completo del frontend e-Commerce/App, in collaborazione con team interni e fornitori esterni<br>
-• Supporto alla migrazione da HiPay a Stripe con attività di testing, validazione post-migrazione e assistenza agli utenti interni<br>
+• Supporto al rinnovamento completo completo del checkout e alla migrazione da HiPay a Stripe con attività di testing, validazione post-migrazione e assistenza agli utenti interni<br>
 • Supervisione di progetti CRM e Marketing Automation basati su Hubspot, con focus su automazione e segmentazione<br>
 • Gestione operativa della transizione da Zendesk a Hubspot per il Customer Care con migrazione dati, configurazione delle pipeline di supporto e validazione del sistema<br>
 • Integrazione operativa di un nuovo sistema PIM, con coinvolgimento diretto dei reparti marketing, R&D e partner tecnico<br>
