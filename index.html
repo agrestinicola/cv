@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicola Agresti - CV App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. RESET E BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 80px; /* Spazio per la navbar su mobile */
+        }
+
+        /* --- 2. LAYOUT APP --- */
+        .app-container {
+            max-width: 600px; /* Larghezza massima stile "mobile" su desktop */
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        header {
+            padding: 40px 20px;
+            background: #2d3436;
+            color: white;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        h1 { font-size: 1.8rem; margin-bottom: 5px; }
+        p.subtitle { opacity: 0.8; font-size: 0.9rem; }
+
+        /* --- 3. SEZIONI CONTENUTO --- */
+        .content-section {
+            display: none; /* Nascondiamo tutto di default */
+            padding: 25px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .content-section.active {
+            display: block; /* Mostriamo solo la sezione attiva */
+        }
+
+        /* Stile delle Card per le esperienze */
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        
+        .card h3 { font-size: 1.1rem; color: #2d3436; }
+        .card span { font-size: 0.8rem; color: #888; display: block; margin-bottom: 8px; }
+
+        /* --- 4. NAVIGATION BAR (Stile App) --- */
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.03);
+            z-index: 100;
+        }
+
+        /* Ottimizzazione per Desktop: barra centrata sotto l'app */
+        @media (min-width: 601px) {
+            .nav-bar {
+                max-width: 600px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 20px 20px 0 0; /* Arrotondata sopra */
+            }
+            body { padding-bottom: 0; }
+            .app-container { margin-top: 20px; margin-bottom: 20px; border-radius: 20px; min-height: 90vh; }
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #b2bec3;
+            cursor: pointer;
+            transition: color 0.3s;
+            flex: 1;
+        }
+
+        .nav-item i { font-size: 1.4rem; margin-bottom: 4px; display: block; }
+        .nav-item span { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+
+        .nav-item.active { color: #0984e3; } /* Colore quando attivo */
+
+        /* Animazione semplice */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    
+    <header>
+        <h1>Nicola Agresti</h1>
+        <p class="subtitle">Developer & Creativo</p>
+    </header>
+
+    <div id="home" class="content-section active">
+        <h2>Benvenuto</h2>
+        <br>
+        <p>Ciao! Sono Nicola. Questo è il mio CV in versione App.</p>
+        <br>
+        <p>Sono appassionato di tecnologia e design. Il mio obiettivo è creare soluzioni semplici per problemi complessi.</p>
+        <br>
+        <h3>Skills</h3>
+        <div class="card">
+            <p><strong>Tech:</strong> HTML, CSS, GitHub, Esempio 1</p>
+        </div>
+        <div class="card">
+            <p><strong>Soft Skills:</strong> Problem Solving, Comunicazione</p>
+        </div>
+    </div>
+
+    <div id="experience" class="content-section">
+        <h2>Esperienza</h2>
+        <br>
+        
+        <div class="card">
+            <h3>Ruolo Lavorativo Recente</h3>
+            <span>2022 - Presente | Azienda X</span>
+            <p>Descrizione breve di cosa hai fatto e dei risultati ottenuti.</p>
+        </div>
+
+        <div class="card">
+            <h3>Ruolo Lavorativo Passato</h3>
+            <span>2020 - 2022 | Azienda Y</span>
+            <p>Descrizione breve delle mansioni svolte.</p>
+        </div>
+    </div>
+
+    <div id="contact" class="content-section">
+        <h2>Contattami</h2>
+        <br>
+        <div class="card">
+            <p><i class="fas fa-envelope"></i> email@esempio.com</p>
+        </div>
+        <div class="card">
+            <p><i class="fab fa-linkedin"></i> linkedin.com/in/nicola</p>
+        </div>
+        <div class="card">
+            <p><i class="fab fa-github"></i> github.com/agrestinicola</p>
+        </div>
+    </div>
+
+</div>
+
+<nav class="nav-bar">
+    <div class="nav-item active" onclick="showSection('home', this)">
+        <i class="fas fa-user"></i>
+        <span>Profilo</span>
+    </div>
+    <div class="nav-item" onclick="showSection('experience', this)">
+        <i class="fas fa-briefcase"></i>
+        <span>Lavoro</span>
+    </div>
+    <div class="nav-item" onclick="showSection('contact', this)">
+        <i class="fas fa-paper-plane"></i>
+        <span>Contatti</span>
+    </div>
+</nav>
+
+<script>
+    // Funzione per cambiare scheda
+    function showSection(sectionId, element) {
+        // 1. Nascondi tutte le sezioni
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        // 2. Rimuovi la classe 'active' da tutti i bottoni del menu
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => item.classList.remove('active'));
+
+        // 3. Mostra la sezione desiderata
+        document.getElementById(sectionId).classList.add('active');
+
+        // 4. Attiva il bottone cliccato
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
