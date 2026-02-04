@@ -3,108 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicola Agresti - CV App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Nicola Agresti - Digital Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. RESET E BASE --- */
+        /* --- VARIABILI COLORI (THEMING) --- */
+        :root {
+            /* Default: DARK MODE */
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --bg-nav: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #b0b0b0;
+            --accent: #bb86fc; /* Viola chiaro moderno */
+            --accent-hover: #3700b3;
+            --border: #333333;
+            --shadow: rgba(0,0,0,0.5);
+        }
+
+        /* LIGHT MODE (attivata via classe) */
+        body.light-theme {
+            --bg-body: #f4f4f9;
+            --bg-card: #ffffff;
+            --bg-nav: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --accent: #0056b3; /* Blu professionale */
+            --accent-hover: #004494;
+            --border: #e0e0e0;
+            --shadow: rgba(0,0,0,0.05);
+        }
+
+        /* --- BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 80px; /* Spazio per la navbar su mobile */
+            padding-bottom: 90px; /* Spazio per navbar mobile */
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- 2. LAYOUT APP --- */
+        a { color: var(--accent); text-decoration: none; }
+        ul { list-style-position: inside; margin-left: 5px; }
+        li { margin-bottom: 5px; color: var(--text-sub); font-size: 0.95rem; }
+
+        /* --- LAYOUT --- */
         .app-container {
-            max-width: 600px; /* Larghezza massima stile "mobile" su desktop */
+            max-width: 650px;
             margin: 0 auto;
-            background: white;
             min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
             position: relative;
         }
 
+        /* --- HEADER & PROFILO --- */
         header {
-            padding: 40px 20px;
-            background: #2d3436;
-            color: white;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px var(--shadow);
+            transition: transform 0.2s;
+        }
+        .theme-toggle:active { transform: scale(0.9); }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
         }
 
         h1 { font-size: 1.8rem; margin-bottom: 5px; }
-        p.subtitle { opacity: 0.8; font-size: 0.9rem; }
+        .role { color: var(--accent); font-weight: 600; font-size: 1rem; margin-bottom: 15px; display: block;}
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .social-btn {
+            background: var(--bg-card);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+        .social-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- 3. SEZIONI CONTENUTO --- */
+        /* --- SEZIONI --- */
         .content-section {
-            display: none; /* Nascondiamo tutto di default */
-            padding: 25px;
-            animation: fadeIn 0.3s ease;
+            display: none;
+            padding: 0 20px;
+            animation: fadeIn 0.4s ease;
+        }
+        .content-section.active { display: block; }
+
+        .section-title {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: inline-block;
         }
 
-        .content-section.active {
-            display: block; /* Mostriamo solo la sezione attiva */
-        }
-
-        /* Stile delle Card per le esperienze */
+        /* --- CARD --- */
         .card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px var(--shadow);
         }
         
-        .card h3 { font-size: 1.1rem; color: #2d3436; }
-        .card span { font-size: 0.8rem; color: #888; display: block; margin-bottom: 8px; }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .card h3 { font-size: 1.1rem; color: var(--text-main); margin-bottom: 2px;}
+        .card-subtitle { font-size: 0.85rem; color: var(--accent); font-weight: 600; display: block; width: 100%; margin-bottom: 5px;}
+        .card-date { font-size: 0.8rem; color: var(--text-sub); background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; }
+        body.light-theme .card-date { background: rgba(0,0,0,0.05); }
 
-        /* --- 4. NAVIGATION BAR (Stile App) --- */
+        .tech-stack {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+        .tech-stack strong { color: var(--text-main); }
+
+        /* --- NAVIGATION BAR --- */
         .nav-bar {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: white;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: var(--bg-nav);
             display: flex;
             justify-content: space-around;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.03);
+            padding: 12px 0;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px var(--shadow);
             z-index: 100;
-        }
-
-        /* Ottimizzazione per Desktop: barra centrata sotto l'app */
-        @media (min-width: 601px) {
-            .nav-bar {
-                max-width: 600px;
-                left: 50%;
-                transform: translateX(-50%);
-                border-radius: 20px 20px 0 0; /* Arrotondata sopra */
-            }
-            body { padding-bottom: 0; }
-            .app-container { margin-top: 20px; margin-bottom: 20px; border-radius: 20px; min-height: 90vh; }
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px); /* Effetto vetro */
         }
 
         .nav-item {
             text-align: center;
-            color: #b2bec3;
+            color: var(--text-sub);
             cursor: pointer;
-            transition: color 0.3s;
             flex: 1;
+            position: relative;
+            transition: color 0.3s;
         }
 
-        .nav-item i { font-size: 1.4rem; margin-bottom: 4px; display: block; }
+        .nav-item i { font-size: 1.2rem; display: block; margin-bottom: 4px; }
         .nav-item span { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+        
+        .nav-item.active { color: var(--accent); }
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
 
-        .nav-item.active { color: #0984e3; } /* Colore quando attivo */
+        /* --- DESKTOP TWEAKS --- */
+        @media (min-width: 700px) {
+            body { padding-bottom: 40px; padding-top: 20px; }
+            .app-container {
+                border-radius: 20px;
+                background: var(--bg-body);
+                border: 1px solid var(--border);
+                overflow: hidden; /* Per contenere tutto */
+            }
+        }
 
-        /* Animazione semplice */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -116,54 +232,122 @@
 <div class="app-container">
     
     <header>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambia tema">
+            <i class="fas fa-sun" id="theme-icon"></i>
+        </button>
+
+        <img src="profile.jpg" alt="Nicola Agresti" class="profile-img" onerror="this.src='https://via.placeholder.com/150?text=NA'">
+        
         <h1>Nicola Agresti</h1>
-        <p class="subtitle">Developer & Creativo</p>
+        <span class="role">Digital Technologies Specialist</span>
+        <br>
+        <div class="social-links">
+            <a href="mailto:nicola.agresti97@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/nicolaagresti/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/agrestinicola" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/agrestinicola/cv/blob/gh-pages/CV_AgrestiNicola.pdf" target="_blank" class="social-btn"><i class="fas fa-file-pdf"></i></a>
+        </div>
     </header>
 
     <div id="home" class="content-section active">
-        <h2>Benvenuto</h2>
-        <br>
-        <p>Ciao! Sono Nicola. Questo è il mio CV in versione App.</p>
-        <br>
-        <p>Sono appassionato di tecnologia e design. Il mio obiettivo è creare soluzioni semplici per problemi complessi.</p>
-        <br>
-        <h3>Skills</h3>
+        <h2 class="section-title">Chi sono</h2>
         <div class="card">
-            <p><strong>Tech:</strong> HTML, CSS, GitHub, Esempio 1</p>
+            <p>Appassionato di innovazione digitale e di e-commerce, negli anni ho costruito un’esperienza solida nell’integrazione di strumenti e piattaforme che connettono tecnologia, marketing e business.</p>
+            <br>
+            <p>Mi distingue un approccio analitico e collaborativo, orientato al miglioramento continuo e alla trasformazione digitale dei processi aziendali.</p>
         </div>
+
+        <h2 class="section-title">Lingue</h2>
         <div class="card">
-            <p><strong>Soft Skills:</strong> Problem Solving, Comunicazione</p>
+            <ul style="list-style: none; margin: 0;">
+                <li>🇮🇹 <strong>Italiano:</strong> Madrelingua</li>
+                <li>🇬🇧 <strong>Inglese:</strong> B1</li>
+            </ul>
         </div>
     </div>
 
     <div id="experience" class="content-section">
-        <h2>Esperienza</h2>
-        <br>
-        
+        <h2 class="section-title">Esperienza</h2>
+
         <div class="card">
-            <h3>Ruolo Lavorativo Recente</h3>
-            <span>2022 - Presente | Azienda X</span>
-            <p>Descrizione breve di cosa hai fatto e dei risultati ottenuti.</p>
+            <div class="card-header">
+                <h3>Passione Beauty SPA</h3>
+                <span class="card-date">Mar 2024 - Presente</span>
+            </div>
+            <span class="card-subtitle">Digital Technologies Specialist</span>
+            <ul>
+                <li>Gestione operativa e-Commerce (AdobeCommerce) e App mobile.</li>
+                <li>Rinnovamento frontend e migrazione checkout (HiPay a Stripe).</li>
+                <li>Supervisione progetti CRM/Marketing Automation (Hubspot).</li>
+                <li>Migrazione Customer Care da Zendesk a Hubspot.</li>
+                <li>Integrazione e gestione sistema PIM e dati prodotto.</li>
+            </ul>
+            <div class="tech-stack">
+                <strong>Tech:</strong> AdobeCommerce, Hubspot, Stripe, PayPal, Klarna, Business Central, PIM, Power BI, GA4, AWS.
+            </div>
         </div>
 
         <div class="card">
-            <h3>Ruolo Lavorativo Passato</h3>
-            <span>2020 - 2022 | Azienda Y</span>
-            <p>Descrizione breve delle mansioni svolte.</p>
+            <div class="card-header">
+                <h3>Athena SPA</h3>
+                <span class="card-date">Nov 2020 - Mar 2024</span>
+            </div>
+            <span class="card-subtitle">Digital Technologies Support</span>
+            <ul>
+                <li>Gestione e-Commerce e marketplace (Amazon, eBay, Mirakl).</li>
+                <li>Coordinamento implementazione nuovo CRM (Creatio).</li>
+                <li>Integrazione operativa nuovi sistemi PIM e OMS.</li>
+                <li>Supporto tecnico utenti e documentazione funzionale.</li>
+            </ul>
+            <div class="tech-stack">
+                <strong>Tech:</strong> Creatio, Zoho, Stripe, PIM, OMS, Boomi, Lengow, Amazon SC, Mirakl.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Università di Verona</h3>
+                <span class="card-date">Ago 2020 - Set 2020</span>
+            </div>
+            <span class="card-subtitle">Tirocinio</span>
+            <p>Analisi dati Twitter per individuare livelli di partecipazione.</p>
+            <div class="tech-stack"><strong>Tech:</strong> Python, PostgreSQL, Excel, LaTeX.</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>Stage Precedenti</h3>
+                <span class="card-date">2014 - 2016</span>
+            </div>
+            <ul>
+                <li><strong>CRM Village:</strong> Helpdesk e gestione ticket.</li>
+                <li><strong>Irideos:</strong> Assistenza tecnica 1° livello.</li>
+                <li><strong>Brun Telecom:</strong> Tecnico riparatore.</li>
+            </ul>
         </div>
     </div>
 
-    <div id="contact" class="content-section">
-        <h2>Contattami</h2>
-        <br>
+    <div id="education" class="content-section">
+        <h2 class="section-title">Formazione</h2>
+        
         <div class="card">
-            <p><i class="fas fa-envelope"></i> email@esempio.com</p>
+            <h3>Laurea in Informatica</h3>
+            <span class="card-subtitle">Università degli Studi di Verona</span>
+            <span class="card-date">2016 - 2020</span>
         </div>
+
         <div class="card">
-            <p><i class="fab fa-linkedin"></i> linkedin.com/in/nicola</p>
+            <h3>Diploma Perito Informatico</h3>
+            <span class="card-subtitle">Istituto Dal Cero</span>
+            <span class="card-date">2011 - 2016</span>
         </div>
+
+        <h2 class="section-title">Certificazioni</h2>
         <div class="card">
-            <p><i class="fab fa-github"></i> github.com/agrestinicola</p>
+            <ul>
+                <li>Formazione SSL per Lavoratori (UniVr, 2020)</li>
+                <li>IT Essentials (Cisco / Dal Cero, 2016)</li>
+            </ul>
         </div>
     </div>
 
@@ -178,28 +362,41 @@
         <i class="fas fa-briefcase"></i>
         <span>Lavoro</span>
     </div>
-    <div class="nav-item" onclick="showSection('contact', this)">
-        <i class="fas fa-paper-plane"></i>
-        <span>Contatti</span>
+    <div class="nav-item" onclick="showSection('education', this)">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Studi</span>
     </div>
 </nav>
 
 <script>
-    // Funzione per cambiare scheda
+    // 1. GESTIONE SEZIONI (Tabs)
     function showSection(sectionId, element) {
-        // 1. Nascondi tutte le sezioni
-        const sections = document.querySelectorAll('.content-section');
-        sections.forEach(sec => sec.classList.remove('active'));
+        // Nascondi tutto
+        document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
 
-        // 2. Rimuovi la classe 'active' da tutti i bottoni del menu
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => item.classList.remove('active'));
-
-        // 3. Mostra la sezione desiderata
+        // Mostra selezionato
         document.getElementById(sectionId).classList.add('active');
-
-        // 4. Attiva il bottone cliccato
         element.classList.add('active');
+        
+        // Scroll to top leggero per UX
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // 2. GESTIONE TEMA (Dark/Light)
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        
+        body.classList.toggle('light-theme');
+        
+        if (body.classList.contains('light-theme')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
     }
 </script>
 
