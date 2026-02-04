@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0N07L43HDN');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CV di Nicola Agresti - Digital Technologies Specialist. Esperto in E-commerce, CRM e integrazione di sistemi.">
@@ -252,10 +259,18 @@
         <span class="role">Digital Technologies Specialist</span>
         <br>
         <div class="social-links">
-            <a href="mailto:nicola.agresti97@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/nicolaagresti/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/agrestinicola" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
-            <a href="https://github.com/agrestinicola/cv/blob/gh-pages/CV_AgrestiNicola.pdf" target="_blank" class="social-btn"><i class="fas fa-file-pdf"></i></a>
+            <a href="mailto:nicola.agresti97@gmail.com" class="social-btn" onclick="trackClick('Email')">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nicolaagresti/" target="_blank" class="social-btn" onclick="trackClick('LinkedIn')">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/agrestinicola" target="_blank" class="social-btn" onclick="trackClick('GitHub')">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://github.com/agrestinicola/cv/blob/gh-pages/CV_AgrestiNicola.pdf" target="_blank" class="social-btn" onclick="trackClick('Download PDF')">
+                <i class="fas fa-file-pdf"></i>
+            </a>
         </div>
     </header>
 
@@ -389,8 +404,17 @@
         document.getElementById(sectionId).classList.add('active');
         element.classList.add('active');
         
-        // Scroll to top leggero per UX
+        // Scroll to top
         window.scrollTo({top: 0, behavior: 'smooth'});
+
+        // --- GA4 TRACKING (VIRTUAL PAGEVIEW) ---
+        // Se GA4 è caricato, invia un evento page_view manuale
+        if (typeof gtag === 'function') {
+            gtag('event', 'page_view', {
+                page_title: sectionId.charAt(0).toUpperCase() + sectionId.slice(1), // Es: "Experience"
+                page_path: '/' + sectionId // Es: "/experience"
+            });
+        }
     }
 
     // 2. GESTIONE TEMA (Dark/Light)
@@ -400,12 +424,32 @@
         
         body.classList.toggle('light-theme');
         
+        // Cambia icona
         if (body.classList.contains('light-theme')) {
             icon.classList.remove('fa-sun');
             icon.classList.add('fa-moon');
         } else {
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
+        }
+
+        // --- GA4 TRACKING (EVENTO) ---
+        // Tracciamo anche chi cambia tema!
+        if (typeof gtag === 'function') {
+            gtag('event', 'theme_change', {
+                event_category: 'UX',
+                event_label: body.classList.contains('light-theme') ? 'Light Mode' : 'Dark Mode'
+            });
+        }
+    }
+    // 3. TRACCIAMENTO SOCIAL & CONTATTI
+    function trackClick(platform) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'social_click', {
+                'event_category': 'Engagement',
+                'event_label': platform
+            });
+            console.log('Evento inviato: ' + platform); // Per debug nella console
         }
     }
 </script>
