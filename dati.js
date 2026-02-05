@@ -26,20 +26,30 @@ const cvData = {
             date: "Mar 2024 - Presente",
             desc: [
                 "Gestione operativa e-Commerce (AdobeCommerce) e App mobile.",
-                "Rinnovamento frontend e migrazione checkout (HiPay a Stripe).",
-                "Supervisione progetti CRM/Marketing Automation (Hubspot)."
+                "Coordinamento del progetto di rinnovamento completo del frontend e-Commerce/App, in collaborazione con team interni e fornitori esterni",
+                "Supporto al rinnovamento completo completo del checkout e alla migrazione da HiPay a Stripe con attività di testing, validazione post-migrazione e assistenza agli utenti interni",
+                "Supervisione di progetti CRM e Marketing Automation basati su Hubspot, con focus su automazione e segmentazione",
+                "Gestione operativa della transizione da Zendesk a Hubspot per il Customer Care con migrazione dati, configurazione delle pipeline di supporto e validazione del sistema",
+                "Integrazione operativa di un nuovo sistema PIM, con coinvolgimento diretto dei reparti marketing, R&D e partner tecnico",
+                "Manutenzione e aggiornamento dei dati prodotto all’interno del sistema PIM",
+                "Gestione e risoluzione delle richieste di assistenza tramite ticketing system e supporto diretto agli utenti",
+                "Redazione di documentazione tecnica e revisione dei processi digitali per migliorarne l’efficienza"
             ],
-            tech: "AdobeCommerce, Hubspot, Stripe, Power BI, GA4."
+            tech: "AdobeCommerce (Magento), Hubspot, HiPay, Stripe, PayPal, Klarna, Scalapay, Microsoft Dynamics 365 Business Central, PIM, Microsoft Power BI, GA4, GTM, Meta Business Suite, AWS, Zendesk"
         },
         {
             company: "Athena SPA",
             role: "Digital Technologies Support",
             date: "Nov 2020 - Mar 2024",
             desc: [
-                "Gestione e-Commerce e marketplace (Amazon, eBay, Mirakl).",
-                "Coordinamento implementazione CRM (Creatio) e PIM."
+                "Gestione e ottimizzazione delle piattaforme e-Commerce e marketplace (Amazon, eBay, Mirakl)",
+                "Coordinamento e implementazione di un nuovo sistema CRM (Creatio), in sinergia con team aziendali e fornitore esterno",
+                "Integrazione operativa di un nuovo sistema PIM, con coinvolgimento diretto di team marketing, R&D e partner tecnico",
+                "Migrazione operativa a un nuovo sistema OMS, con coinvolgimento dei partner tecnici",
+                "Interfaccia costante con i reparti marketing e R&D per la configurazione e ottimizzazione del sistema PIM",
+                "Supporto tecnico agli utenti finali e redazione di documentazione funzionale e procedurale"
             ],
-            tech: "Creatio, Zoho, PIM, Boomi, Amazon SC."
+            tech: "Creatio, Zoho Desk, Stripe, PIM, OMS, Boomi, Lengow, eBay, Amazon Seller Central, Mirakl"
         }
     ],
 
@@ -68,4 +78,5 @@ const cvData = {
         { name: "Italiano", level: "Madrelingua", flag: "🇮🇹" },
         { name: "Inglese", level: "B1", flag: "🇬🇧" }
     ]
+
 };
