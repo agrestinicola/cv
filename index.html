@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="CV Digitale di Nicola Agresti - Digital Technologies Specialist">
     <title>Nicola Agresti - CV</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
     <meta property="og:image" content="https://www.nicolaagresti.it/social-preview.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0N07L43HDN"></script>
     <script>
@@ -33,9 +38,20 @@
             --text-sub: #d1d1d1; 
             --accent: #bb86fc;
             --border: #333333;
+            --terminal-bg: #000000;
+            --terminal-header: #252525;
             --shadow: rgba(0,0,0,0.5);
             --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
             --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+            
+            --term-key: #5af78e; 
+            --term-lock: #ff5f56; 
+            --term-cta: #bb86fc; 
+
+            /* Variabili Grafico (Dark) */
+            --chart-grid: #444444;
+            --chart-point: #ffffff;
+            --chart-divider: #333333; /* Linea divisoria */
         }
 
         body.light-theme {
@@ -47,7 +63,17 @@
             --text-sub: #555555;
             --accent: #0056b3;
             --border: #e0e0e0;
+            --terminal-bg: #ffffff;
+            --terminal-header: #e0e0e0;
             --shadow: rgba(0,0,0,0.05);
+            --term-key: #008000;
+            --term-lock: #cc0000;
+            --term-cta: #0056b3;
+
+             /* Variabili Grafico (Light) */
+             --chart-grid: #dddddd;
+             --chart-point: #0056b3;
+             --chart-divider: #eeeeee;
         }
 
         /* --- 2. BASE --- */
@@ -75,42 +101,66 @@
             padding-bottom: 140px; 
         }
 
-        /* --- 3. HEADER --- */
-        header { padding: 20px 20px 10px 20px; text-align: center; position: relative; }
+        /* --- 3. HEADER TERMINAL STYLE --- */
+        header { padding: 40px 20px 20px 20px; text-align: center; position: relative; }
 
-        .theme-toggle {
-            position: absolute; top: 15px; right: 15px;
-            background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main);
-            width: 36px; height: 36px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 2px 8px var(--shadow);
-            transition: transform 0.2s var(--ease-spring); z-index: 50; font-size: 0.9rem;
+        .terminal-window {
+            background: var(--terminal-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px var(--shadow);
+            max-width: 550px; margin: 0 auto;
+            overflow: hidden; text-align: left;
+            transition: all 0.3s ease;
         }
-        .theme-toggle:active { transform: scale(0.9); }
 
-        .profile-img {
-            width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
-            border: 2px solid var(--accent); margin-bottom: 10px;
-            box-shadow: 0 5px 15px var(--shadow); aspect-ratio: 1/1; 
-            transition: transform 0.3s var(--ease-smooth);
+        .terminal-header {
+            background: var(--terminal-header);
+            padding: 8px 12px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border);
         }
-        .profile-img:hover { transform: scale(1.05); }
 
-        h1 { font-size: 1.6rem; margin-bottom: 2px; letter-spacing: -0.5px; font-weight: 700; line-height: 1.2; }
-        .role { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 15px; display: block; }
-        
-        .social-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
-        .social-btn {
-            background: var(--bg-card); width: 42px; height: 42px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid var(--border); color: var(--text-main);
-            transition: all 0.3s var(--ease-spring); cursor: pointer; font-size: 1.1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        .terminal-controls { display: flex; gap: 8px; }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        .terminal-actions { display: flex; align-items: center; gap: 12px; }
+        .bar-icon {
+            color: var(--text-sub); font-size: 1rem; background: none; border: none; cursor: pointer;
+            transition: color 0.2s, transform 0.2s; display: flex; align-items: center; justify-content: center; padding: 4px;
         }
-        .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+        .bar-icon:hover { color: var(--accent); transform: scale(1.1); }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem; min-height: 130px; 
+            line-height: 1.5; white-space: nowrap; overflow: hidden;
+        }
+
+        .cmd-line { display: block; margin-bottom: 6px; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; }
+        .prompt { color: var(--text-sub); opacity: 0.5; margin-right: 8px; font-weight: 300; }
+        .key-label { font-weight: bold; margin-right: 4px; }
+        .key-asis { color: var(--term-key); }
+        .key-tobe { color: var(--term-lock); }
+        .value-encrypted { color: var(--term-lock); opacity: 0.8; font-weight: bold; }
+        .cta-text { color: var(--term-cta); font-weight: bold; font-style: italic; margin-top: 6px; display: inline-block; }
+        .cursor::after { content: '█'; animation: blink 1s step-end infinite; color: var(--accent); margin-left: 2px; font-size: 0.8em; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        @media (max-width: 480px) {
+            header { padding: 25px 15px 10px 15px; }
+            .terminal-body { padding: 15px 12px; font-size: clamp(0.7rem, 3.5vw, 0.9rem); line-height: 1.4; }
+            .value-encrypted { letter-spacing: 0px; }
+            .cmd-line { margin-bottom: 4px; }
+            .cta-text { margin-top: 8px; font-size: 0.95em; }
+        }
 
         /* --- 4. SEZIONI --- */
-        .content-section { display: none; padding: 0 20px; }
+        .content-section { display: none; padding: 0 20px; margin-top: 20px; }
         .content-section.active { display: block; animation: slideUpFade 0.5s var(--ease-smooth) forwards; }
         @keyframes slideUpFade { 0% { opacity: 0; transform: translateY(20px) scale(0.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
 
@@ -126,6 +176,23 @@
             padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px var(--shadow);
             transition: transform 0.2s ease;
         }
+        
+        /* CHART CONTAINER STYLE */
+        .chart-wrapper {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--chart-divider); /* Separatore elegante */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 220px; /* ALTEZZA RIDOTTA */
+            width: 100%;
+        }
+
         .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 5px; }
         .card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 2px; line-height: 1.3;}
         .card-subtitle { font-size: 0.9rem; color: var(--accent); font-weight: 600; display: block; width: 100%; margin-bottom: 8px;}
@@ -156,7 +223,6 @@
             border-radius: 16px; overflow: hidden; margin-top: 20px;
             position: relative; z-index: 1; margin-bottom: 25px; 
         }
-        
         .btn-round-floating {
             display: flex; align-items: center; justify-content: center;
             width: 60px; height: 60px; background: var(--bg-card); color: var(--accent);
@@ -191,7 +257,6 @@
         .nav-item.active i { transform: translateY(-4px) scale(1.1); }
         .nav-item.active span { opacity: 1; }
 
-        /* --- 9. DESKTOP TWEAKS --- */
         @media (min-width: 700px) {
             body { padding: 40px 0 60px; background-color: #000000; }
             body.light-theme { background-color: #e0e0e0; }
@@ -215,22 +280,61 @@
 <div class="app-container">
     
     <header>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambia tema">
-            <i class="fas fa-sun" id="theme-icon"></i>
-        </button>
-        <img id="u-img" src="" alt="Foto profilo" class="profile-img">
-        <h1 id="u-name"></h1>
-        <span id="u-role" class="role"></span>
-        
-        <div class="social-links">
-            <a id="lnk-linkedin" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a id="lnk-github" target="_blank" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-actions">
+                    <button class="bar-icon" onclick="toggleTheme()" aria-label="Cambia tema">
+                        <i class="fas fa-sun" id="theme-icon"></i>
+                    </button>
+                    <a id="lnk-linkedin" target="_blank" class="bar-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a id="lnk-github" target="_blank" class="bar-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="terminal-body">
+                <div class="cmd-line">
+                    <span class="prompt">></span> 
+                    <span id="term-greet"></span>
+                </div>
+                <div class="cmd-line">
+                    <span class="prompt">$</span> 
+                    <span class="key-label key-asis" id="lbl-asis"></span> 
+                    = <span id="term-asis"></span>
+                </div>
+                <div class="cmd-line">
+                    <span class="prompt">$</span> 
+                    <span class="key-label key-tobe" id="lbl-tobe"></span> 
+                    = <span id="term-tobe" class="value-encrypted"></span>
+                </div>
+                <div class="cmd-line">
+                    <span class="prompt">></span> 
+                    <span id="term-cta" class="cta-text"></span>
+                </div>
+            </div>
         </div>
     </header>
 
     <div id="home" class="content-section active">
         <h2 class="section-title">Chi sono</h2>
-        <div class="card"><p id="u-desc"></p></div>
+        
+        <div class="card">
+            <p id="u-desc"></p>
+            
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </div>
 
         <h2 class="section-title">Contattami</h2>
         <div class="card">
@@ -281,13 +385,72 @@
 </nav>
 
 <script>
+    let myRadarChart;
+
     document.addEventListener("DOMContentLoaded", () => {
         if(typeof cvData === 'undefined') { alert("Errore: file dati.js non trovato!"); return; }
 
-        document.getElementById('u-name').textContent = cvData.profile.name;
-        document.getElementById('u-role').textContent = cvData.profile.role;
-        const img = document.getElementById('u-img'); img.src = cvData.profile.image; img.alt = cvData.profile.name;
-        
+        // --- ANIMAZIONE TERMINALE (Dinamico da dati.js) ---
+        async function typeWriter(text, elementId, speed = 40) {
+            const el = document.getElementById(elementId);
+            el.classList.add('cursor');
+            for (let i = 0; i < text.length; i++) {
+                el.textContent += text.charAt(i);
+                await new Promise(r => setTimeout(r, speed));
+            }
+            el.classList.remove('cursor');
+        }
+
+        async function startTerminalAnimation() {
+            // Config default se mancano in dati.js
+            const termData = cvData.terminal || {
+                greet_pre: "Hi, I'm",
+                lbl_asis: "As is",
+                lbl_tobe: "To be",
+                val_encrypted: "H4X_L3V3L_99 (LOCKED)",
+                cta: "Contact me to unlock the next level..."
+            };
+
+            // Setta Labels Statiche
+            document.getElementById('lbl-asis').textContent = termData.lbl_asis;
+            document.getElementById('lbl-tobe').textContent = termData.lbl_tobe;
+
+            // 1. Greet
+            await typeWriter(termData.greet_pre + " " + cvData.profile.name + "!", 'term-greet', 30);
+            
+            // 2. As Is
+            await new Promise(r => setTimeout(r, 200));
+            await typeWriter(cvData.profile.role, 'term-asis', 25);
+            
+            // 3. To Be (Criptato)
+            const encryptedText = termData.val_encrypted;
+            const elToBe = document.getElementById('term-tobe');
+            elToBe.textContent = ""; elToBe.classList.add('cursor');
+            for (let i = 0; i < encryptedText.length; i++) {
+                elToBe.textContent += encryptedText.charAt(i);
+                await new Promise(r => setTimeout(r, 30));
+            }
+            elToBe.classList.remove('cursor');
+
+            // 4. CTA
+            const ctaText = termData.cta;
+            await new Promise(r => setTimeout(r, 100));
+            const elCta = document.getElementById('term-cta');
+            elCta.classList.add('cursor');
+            for (let i = 0; i < ctaText.length; i++) {
+                elCta.textContent += ctaText.charAt(i);
+                await new Promise(r => setTimeout(r, 25));
+            }
+        }
+
+        startTerminalAnimation();
+
+        // --- GRAFICO SKILL ---
+        if(cvData.skills) {
+            initChart();
+        }
+
+        // --- LINK & DATI ---
         setupLink('lnk-linkedin', cvData.profile.social.linkedin, 'Social', 'LinkedIn');
         setupLink('lnk-github', cvData.profile.social.github, 'Social', 'GitHub');
 
@@ -311,15 +474,80 @@
         const langContainer = document.getElementById('lang-list');
         cvData.languages.forEach(l => langContainer.innerHTML += `<li>${l.flag} <strong>${l.name}:</strong> ${l.level}</li>`);
 
-        // SETUP DOWNLOAD
         const cvPdf = cvData.profile.social.cv_pdf;
+        document.getElementById('iframe-cv').src = cvPdf;
         const btnDownload = document.getElementById('btn-download-cv');
         btnDownload.href = cvPdf;
         btnDownload.onclick = () => trackEvent('file_download', {'file_name': 'CV.pdf', 'file_extension': 'pdf'});
-        
-        // NOTA: Non impostiamo iframe.src qui per evitare problemi su Instagram
     });
 
+    // --- CHART LOGIC ---
+    function initChart() {
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        const isLight = document.body.classList.contains('light-theme');
+        
+        const color = isLight ? 'rgba(0, 86, 179, ' : 'rgba(187, 134, 252, ';
+        const gridColor = isLight ? '#dddddd' : '#444444';
+        const pointColor = isLight ? '#0056b3' : '#ffffff';
+
+        myRadarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: cvData.skills.labels,
+                datasets: [{
+                    label: 'Skill Level',
+                    data: cvData.skills.data,
+                    backgroundColor: color + '0.2)',
+                    borderColor: color + '1)',
+                    pointBackgroundColor: pointColor,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: color + '1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: gridColor },
+                        grid: { color: gridColor },
+                        pointLabels: {
+                            color: isLight ? '#555' : '#d1d1d1',
+                            font: { size: 11, family: "'Inter', sans-serif" } // Font leggermente più piccolo
+                        },
+                        ticks: { display: false, backdropColor: 'transparent' },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    }
+
+    function updateChartTheme(isLight) {
+        if (!myRadarChart) return;
+        
+        const color = isLight ? 'rgba(0, 86, 179, ' : 'rgba(187, 134, 252, ';
+        const gridColor = isLight ? '#dddddd' : '#444444';
+        const pointColor = isLight ? '#0056b3' : '#ffffff';
+        const labelColor = isLight ? '#555' : '#d1d1d1';
+
+        myRadarChart.data.datasets[0].backgroundColor = color + '0.2)';
+        myRadarChart.data.datasets[0].borderColor = color + '1)';
+        myRadarChart.data.datasets[0].pointBackgroundColor = pointColor;
+        myRadarChart.data.datasets[0].pointHoverBorderColor = color + '1)';
+
+        myRadarChart.options.scales.r.angleLines.color = gridColor;
+        myRadarChart.options.scales.r.grid.color = gridColor;
+        myRadarChart.options.scales.r.pointLabels.color = labelColor;
+
+        myRadarChart.update();
+    }
+
+    // --- NAVIGATION ---
     function showSection(id, el) {
         document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -327,15 +555,6 @@
         el.classList.add('active');
         window.scrollTo({top:0, behavior:'smooth'});
         trackEvent('page_view', {'page_title': id, 'page_location': '#' + id});
-
-        // LOGICA DI CARICAMENTO PDF "RITARDATO" (Fix Instagram)
-        if (id === 'cv-viewer') {
-            const iframe = document.getElementById('iframe-cv');
-            // Carica solo se non è già stato caricato
-            if (iframe && !iframe.getAttribute('src')) {
-                iframe.src = cvData.profile.social.cv_pdf;
-            }
-        }
     }
 
     function setupLink(elId, url, cat, lbl) {
@@ -352,6 +571,7 @@
         const isLight = document.body.classList.contains('light-theme');
         document.getElementById('theme-icon').className = isLight ? 'fas fa-moon' : 'fas fa-sun';
         trackEvent('theme_change', { 'mode': isLight ? 'light' : 'dark' });
+        updateChartTheme(isLight);
     }
 
     function copyEmail(btn) {
