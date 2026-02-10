@@ -177,20 +177,23 @@
             transition: transform 0.2s ease;
         }
         
-        /* CHART CONTAINER STYLE */
+        /* CHART CONTAINER STYLE (Centrato e Responsivo) */
         .chart-wrapper {
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid var(--chart-divider);
             width: 100%;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            justify-content: center; /* Centra il grafico orizzontalmente */
         }
 
         .chart-container {
             position: relative;
-            height: 220px; /* ALTEZZA COMPATTA */
+            height: 250px; /* Altezza ottimale */
             width: 100%;
+            max-width: 400px; /* Non diventerà mai troppo largo su desktop */
+            margin: 0 auto;
         }
 
         .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 5px; }
@@ -469,14 +472,11 @@
         const langContainer = document.getElementById('lang-list');
         cvData.languages.forEach(l => langContainer.innerHTML += `<li>${l.flag} <strong>${l.name}:</strong> ${l.level}</li>`);
 
-        // SETUP PDF DOWNLOAD BUTTON (Safe)
+        // SETUP PDF DOWNLOAD BUTTON (Safe, no auto load in iframe)
         const cvPdf = cvData.profile.social.cv_pdf;
         const btnDownload = document.getElementById('btn-download-cv');
         btnDownload.href = cvPdf;
         btnDownload.onclick = () => trackEvent('file_download', {'file_name': 'CV.pdf', 'file_extension': 'pdf'});
-        
-        // ATTENZIONE: ABBIAMO RIMOSSO IL CARICAMENTO AUTOMATICO DELL'IFRAME QUI
-        // PER EVITARE PROBLEMI CON INSTAGRAM/TIKTOK
     });
 
     // --- CHART LOGIC ---
@@ -507,6 +507,9 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                layout: {
+                    padding: 10 // Previene il taglio del testo ai bordi su mobile
+                },
                 scales: {
                     r: {
                         angleLines: { color: gridColor },
@@ -545,7 +548,7 @@
         myRadarChart.update();
     }
 
-    // --- NAVIGATION CON LAZY LOADING PER PDF (FIX INSTAGRAM) ---
+    // --- NAVIGATION CON LAZY LOADING PER PDF ---
     function showSection(id, el) {
         document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -554,10 +557,9 @@
         window.scrollTo({top:0, behavior:'smooth'});
         trackEvent('page_view', {'page_title': id, 'page_location': '#' + id});
 
-        // FIX INSTAGRAM: Carica il PDF solo quando la sezione diventa visibile
+        // Carica PDF solo quando la sezione CV viene aperta
         if (id === 'cv-viewer') {
             const iframe = document.getElementById('iframe-cv');
-            // Carica solo se vuoto
             if (iframe && !iframe.getAttribute('src')) {
                 iframe.src = cvData.profile.social.cv_pdf;
             }
