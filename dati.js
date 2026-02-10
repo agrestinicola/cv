@@ -12,9 +12,23 @@ const cvData = {
         }
     },
 
+    // --- SEZIONE 0: TERMINAL ---
+    terminal: {
+        greet_pre: "Hi, I'm",     // Testo prima del nome
+        lbl_asis: "As is",        // Etichetta prima riga
+        lbl_tobe: "To be",        // Etichetta seconda riga
+        val_encrypted: "H4X_L3V3L_99 (LOCKED)", // Testo criptato
+        cta: "Contact me to unlock the next level..." // Frase finale verde/viola
+    },
+
     // --- SEZIONE 1: CHI SONO ---
     about: {
         description: "Appassionato di innovazione digitale e di e-commerce, negli anni ho costruito un’esperienza solida nell’integrazione di strumenti e piattaforme che connettono tecnologia, marketing e business."
+    },
+
+    skills: {
+        labels: ["Tech knowledge", "Project management", "Coding", "Problem Solving", "Analytics", "E-commerce"],
+        data: [80, 80, 30, 95, 65, 75]
     },
 
     // --- SEZIONE 2: ESPERIENZE LAVORATIVE ---
@@ -78,5 +92,4 @@ const cvData = {
         { name: "Italiano", level: "Madrelingua", flag: "🇮🇹" },
         { name: "Inglese", level: "B1", flag: "🇬🇧" }
     ]
-
 };
