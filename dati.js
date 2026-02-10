@@ -27,7 +27,7 @@ const cvData = {
     },
 
     skills: {
-        labels: ["Tech knowledge", "Project management", "Coding", "Problem Solving", "Analytics", "E-commerce"],
+        labels: ["Project management", "Tech knowledge", "Coding", "Problem Solving", "Analytics", "E-commerce"],
         data: [80, 80, 30, 95, 65, 75]
     },
 
@@ -93,3 +93,4 @@ const cvData = {
         { name: "Inglese", level: "B1", flag: "🇬🇧" }
     ]
 };
+
