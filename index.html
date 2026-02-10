@@ -51,7 +51,7 @@
             /* Variabili Grafico (Dark) */
             --chart-grid: #444444;
             --chart-point: #ffffff;
-            --chart-divider: #333333; /* Linea divisoria */
+            --chart-divider: #333333;
         }
 
         body.light-theme {
@@ -181,7 +181,7 @@
         .chart-wrapper {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid var(--chart-divider); /* Separatore elegante */
+            border-top: 1px solid var(--chart-divider);
             width: 100%;
             display: flex;
             justify-content: center;
@@ -189,7 +189,7 @@
 
         .chart-container {
             position: relative;
-            height: 220px; /* ALTEZZA RIDOTTA */
+            height: 220px; /* ALTEZZA COMPATTA */
             width: 100%;
         }
 
@@ -390,7 +390,7 @@
     document.addEventListener("DOMContentLoaded", () => {
         if(typeof cvData === 'undefined') { alert("Errore: file dati.js non trovato!"); return; }
 
-        // --- ANIMAZIONE TERMINALE (Dinamico da dati.js) ---
+        // --- ANIMAZIONE TERMINALE (Dinamico) ---
         async function typeWriter(text, elementId, speed = 40) {
             const el = document.getElementById(elementId);
             el.classList.add('cursor');
@@ -402,7 +402,7 @@
         }
 
         async function startTerminalAnimation() {
-            // Config default se mancano in dati.js
+            // Configurazione da dati.js (con fallback)
             const termData = cvData.terminal || {
                 greet_pre: "Hi, I'm",
                 lbl_asis: "As is",
@@ -411,18 +411,14 @@
                 cta: "Contact me to unlock the next level..."
             };
 
-            // Setta Labels Statiche
             document.getElementById('lbl-asis').textContent = termData.lbl_asis;
             document.getElementById('lbl-tobe').textContent = termData.lbl_tobe;
 
-            // 1. Greet
             await typeWriter(termData.greet_pre + " " + cvData.profile.name + "!", 'term-greet', 30);
             
-            // 2. As Is
             await new Promise(r => setTimeout(r, 200));
             await typeWriter(cvData.profile.role, 'term-asis', 25);
             
-            // 3. To Be (Criptato)
             const encryptedText = termData.val_encrypted;
             const elToBe = document.getElementById('term-tobe');
             elToBe.textContent = ""; elToBe.classList.add('cursor');
@@ -432,7 +428,6 @@
             }
             elToBe.classList.remove('cursor');
 
-            // 4. CTA
             const ctaText = termData.cta;
             await new Promise(r => setTimeout(r, 100));
             const elCta = document.getElementById('term-cta');
@@ -450,7 +445,7 @@
             initChart();
         }
 
-        // --- LINK & DATI ---
+        // --- POPOLAMENTO DATI ---
         setupLink('lnk-linkedin', cvData.profile.social.linkedin, 'Social', 'LinkedIn');
         setupLink('lnk-github', cvData.profile.social.github, 'Social', 'GitHub');
 
@@ -474,11 +469,14 @@
         const langContainer = document.getElementById('lang-list');
         cvData.languages.forEach(l => langContainer.innerHTML += `<li>${l.flag} <strong>${l.name}:</strong> ${l.level}</li>`);
 
+        // SETUP PDF DOWNLOAD BUTTON (Safe)
         const cvPdf = cvData.profile.social.cv_pdf;
-        document.getElementById('iframe-cv').src = cvPdf;
         const btnDownload = document.getElementById('btn-download-cv');
         btnDownload.href = cvPdf;
         btnDownload.onclick = () => trackEvent('file_download', {'file_name': 'CV.pdf', 'file_extension': 'pdf'});
+        
+        // ATTENZIONE: ABBIAMO RIMOSSO IL CARICAMENTO AUTOMATICO DELL'IFRAME QUI
+        // PER EVITARE PROBLEMI CON INSTAGRAM/TIKTOK
     });
 
     // --- CHART LOGIC ---
@@ -515,7 +513,7 @@
                         grid: { color: gridColor },
                         pointLabels: {
                             color: isLight ? '#555' : '#d1d1d1',
-                            font: { size: 11, family: "'Inter', sans-serif" } // Font leggermente più piccolo
+                            font: { size: 11, family: "'Inter', sans-serif" }
                         },
                         ticks: { display: false, backdropColor: 'transparent' },
                         suggestedMin: 0,
@@ -547,7 +545,7 @@
         myRadarChart.update();
     }
 
-    // --- NAVIGATION ---
+    // --- NAVIGATION CON LAZY LOADING PER PDF (FIX INSTAGRAM) ---
     function showSection(id, el) {
         document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -555,6 +553,15 @@
         el.classList.add('active');
         window.scrollTo({top:0, behavior:'smooth'});
         trackEvent('page_view', {'page_title': id, 'page_location': '#' + id});
+
+        // FIX INSTAGRAM: Carica il PDF solo quando la sezione diventa visibile
+        if (id === 'cv-viewer') {
+            const iframe = document.getElementById('iframe-cv');
+            // Carica solo se vuoto
+            if (iframe && !iframe.getAttribute('src')) {
+                iframe.src = cvData.profile.social.cv_pdf;
+            }
+        }
     }
 
     function setupLink(elId, url, cat, lbl) {
