@@ -23,7 +23,7 @@ const cvData = {
 
     // --- SEZIONE 1: CHI SONO ---
     about: {
-        description: "Appassionato di innovazione digitale e di e-commerce, negli anni ho costruito un’esperienza solida nell’integrazione di strumenti e piattaforme che connettono tecnologia, marketing e business."
+        description: "Digital Technologies Specialist con esperienza nella gestione tecnica di ecosistemi e-commerce complessi. Agisco come punto di raccordo tra le esigenze di business e le soluzioni tecnologiche, coordinando i partner esterni e gestendo le priorità di sviluppo. Mi occupo della configurazione avanzata delle piattaforme e fornisco supporto tecnico ai team interni per ottimizzare i processi operativi e risolvere criticità."
     },
 
     skills: {
@@ -39,31 +39,28 @@ const cvData = {
             role: "Digital Technologies Specialist",
             date: "Mar 2024 - Presente",
             desc: [
-                "Gestione operativa e-Commerce (AdobeCommerce) e App mobile.",
-                "Coordinamento del progetto di rinnovamento completo del frontend e-Commerce/App, in collaborazione con team interni e fornitori esterni",
-                "Supporto al rinnovamento completo completo del checkout e alla migrazione da HiPay a Stripe con attività di testing, validazione post-migrazione e assistenza agli utenti interni",
-                "Supervisione di progetti CRM e Marketing Automation basati su Hubspot, con focus su automazione e segmentazione",
-                "Gestione operativa della transizione da Zendesk a Hubspot per il Customer Care con migrazione dati, configurazione delle pipeline di supporto e validazione del sistema",
-                "Integrazione operativa di un nuovo sistema PIM, con coinvolgimento diretto dei reparti marketing, R&D e partner tecnico",
-                "Manutenzione e aggiornamento dei dati prodotto all’interno del sistema PIM",
-                "Gestione e risoluzione delle richieste di assistenza tramite ticketing system e supporto diretto agli utenti",
-                "Redazione di documentazione tecnica e revisione dei processi digitali per migliorarne l’efficienza"
+                "Interfaccia tecnica con i partner di sviluppo esterni: analisi dei requisiti e gestione delle priorità, garantendo che le evolutive vengano rilasciate entro le scadenze e nel rispetto del budget concordato.",
+                "Supervisione tecnica della piattaforma AdobeCommerce e dell'app mobile, monitorando stabilità, performance e nuove integrazioni.",
+                "Amministrazione e integrazione HubSpot, con implementazione di chatbot AI per l’automazione delle richieste clienti e riduzione del carico operativo del customer care.",
+                "Amministrazione del sistema PIM: configurazione della struttura dati e manutenzione tecnica per garantire la corretta sincronizzazione con i canali di vendita.",
+                "Coordinamento del redesign completo di e-commerce e app, migliorando UX e performance, con impatto positivo su conversion rate e stabilità dell’infrastruttura digitale.",
+                "Migrazione del sistema di pagamento a Stripe, ottimizzando il processo di checkout e migliorando il tasso di autorizzazione delle transazioni, con impatto diretto sul fatturato online.",
+                "Gestione di ticketing, redazione di documentazione tecnica e supporto tecnico agli utenti interni."
             ],
-            tech: "AdobeCommerce (Magento), Hubspot, HiPay, Stripe, PayPal, Klarna, Scalapay, Microsoft Dynamics 365 Business Central, PIM, Microsoft Power BI, GA4, GTM, Meta Business Suite, AWS, Zendesk"
+            tech: "AdobeCommerce, Hubspot, PIM, Stripe, Asana, Google Analytics, Yotpo"
         },
         {
             company: "Athena SPA",
             role: "Digital Technologies Support",
             date: "Nov 2020 - Mar 2024",
             desc: [
-                "Gestione e ottimizzazione delle piattaforme e-Commerce e marketplace (Amazon, eBay, Mirakl)",
-                "Coordinamento e implementazione di un nuovo sistema CRM (Creatio), in sinergia con team aziendali e fornitore esterno",
-                "Integrazione operativa di un nuovo sistema PIM, con coinvolgimento diretto di team marketing, R&D e partner tecnico",
-                "Migrazione operativa a un nuovo sistema OMS, con coinvolgimento dei partner tecnici",
-                "Interfaccia costante con i reparti marketing e R&D per la configurazione e ottimizzazione del sistema PIM",
-                "Supporto tecnico agli utenti finali e redazione di documentazione funzionale e procedurale"
+                "Monitoraggio e manutenzione dei flussi di integrazione tra il gestionale aziendale e i canali di vendita (E-Commerce B2B, Amazon, eBay, Mirakl).",
+                "Amministrazione tecnica del CRM (Creatio): gestione permessi, configurazione dashboard e risoluzione problematiche utente.",
+                "Supporto tecnico operativo durante la migrazione al nuovo sistema OMS, verificando la correttezza dei flussi di stock e ordini.",
+                "Configurazione tecnica del PIM a supporto delle attività del reparto marketing e R&D.",
+                "Assistenza tecnica ai colleghi e creazione di procedure operative per l'utilizzo degli strumenti digitali."
             ],
-            tech: "Creatio, Zoho Desk, Stripe, PIM, OMS, Boomi, Lengow, eBay, Amazon Seller Central, Mirakl"
+            tech: "E-Commerce B2B, Creatio, Zoho, Boomi, Marketplaces, Lengow"
         }
     ],
 
@@ -93,4 +90,3 @@ const cvData = {
         { name: "Inglese", level: "B1", flag: "🇬🇧" }
     ]
 };
-
