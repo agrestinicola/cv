@@ -23,7 +23,7 @@ const cvData = {
 
     // --- SEZIONE 1: CHI SONO ---
     about: {
-        description: "Digital Technologies Specialist con esperienza nella gestione tecnica di ecosistemi e-commerce complessi. Agisco come punto di raccordo tra le esigenze di business e le soluzioni tecnologiche, coordinando i partner esterni e gestendo le priorità di sviluppo. Mi occupo della configurazione avanzata delle piattaforme e fornisco supporto tecnico ai team interni per ottimizzare i processi operativi e risolvere criticità."
+        description: "Digital Technologies Specialist con 6 anni di esperienza nel mondo e-commerce, specializzato nella gestione end-to-end di progetti digitali. Traduco gli obiettivi di business in requisiti tecnici e guido i partner di sviluppo dall’analisi al rilascio, presidiando priorità, tempi e budget. Unisco visione di progetto e competenza tecnica sulle piattaforme, con attenzione costante a stabilità, esperienza utente e risultati di vendita."
     },
 
     skills: {
@@ -39,28 +39,30 @@ const cvData = {
             role: "Digital Technologies Specialist",
             date: "Mar 2024 - Presente",
             desc: [
-                "Interfaccia tecnica con i partner di sviluppo esterni: analisi dei requisiti e gestione delle priorità, garantendo che le evolutive vengano rilasciate entro le scadenze e nel rispetto del budget concordato.",
-                "Supervisione tecnica della piattaforma AdobeCommerce e dell'app mobile, monitorando stabilità, performance e nuove integrazioni.",
-                "Amministrazione e integrazione HubSpot, con implementazione di chatbot AI per l’automazione delle richieste clienti e riduzione del carico operativo del customer care.",
-                "Amministrazione del sistema PIM: configurazione della struttura dati e manutenzione tecnica per garantire la corretta sincronizzazione con i canali di vendita.",
-                "Coordinamento del redesign completo di e-commerce e app, migliorando UX e performance, con impatto positivo su conversion rate e stabilità dell’infrastruttura digitale.",
-                "Migrazione del sistema di pagamento a Stripe, ottimizzando il processo di checkout e migliorando il tasso di autorizzazione delle transazioni, con impatto diretto sul fatturato online.",
-                "Gestione di ticketing, redazione di documentazione tecnica e supporto tecnico agli utenti interni."
+                "Gestione end-to-end delle evolutive con i partner di sviluppo: analisi dei requisiti, priorità, test e rilascio nel rispetto di tempi e budget.",
+                "Presidio tecnico di Adobe Commerce, app mobile e PIM/DAM: stabilità, performance, integrazioni e sincronizzazione dei dati verso i canali di vendita, con supporto e documentazione per i team interni. ",
+                "Amministrazione di HubSpot e introduzione di un chatbot AI che automatizza le richieste dei clienti, alleggerendo il carico del customer care.",
+                "Redesign e pagamenti: coordinamento del redesign completo di sito e app e migrazione a Stripe, con miglioramento di UX, conversion rate e tasso di autorizzazione delle transazioni.",
+                "Loyalty, recensioni e UGC (Yotpo): passaggio al nuovo programma fedeltà con migrazione di clienti e saldi punti; introduzione a sito di recensioni prodotto e contenuti Instagram; collaudo completo su backend e frontend.",
+                "PDP 2.0 e virtual kit: riprogettazione delle pagine prodotto con layout dedicati per categoria e creazione in PIM di bundle virtuali integrati con AdobeCommerce, con aumento di click-through rate e vendite.",
+                "App 2.0: onboarding per la profilazione, centro notifiche con storico e tracciamento degli stati, scanner QR per l’aggiunta a carrello, checkout più rapido e area ordini orientata a riordini e recensioni.",
+                "Migrazione a SAP: membro del team di progetto, con responsabilità sulle integrazioni con Adobe Commerce e sulla continuità operativa del sito.",
+                "Store Romania: lancio del nuovo mercato e verifica di tutte le integrazioni.",
+                "TikTok Shop: attivazione del nuovo canale di vendita tramite ChannelEngine, con gestione delle integrazioni di prodotti, ordini e spedizioni."
             ],
-            tech: "AdobeCommerce, Hubspot, PIM, Stripe, Asana, Google Analytics, Yotpo"
+            tech: "Adobe Commerce • HubSpot • Yotpo • PIM/DAM • Stripe • SAP • Channel Engine • Asana"
         },
         {
             company: "Athena SPA",
             role: "Digital Technologies Support",
             date: "Nov 2020 - Mar 2024",
             desc: [
-                "Monitoraggio e manutenzione dei flussi di integrazione tra il gestionale aziendale e i canali di vendita (E-Commerce B2B, Amazon, eBay, Mirakl).",
-                "Amministrazione tecnica del CRM (Creatio): gestione permessi, configurazione dashboard e risoluzione problematiche utente.",
-                "Supporto tecnico operativo durante la migrazione al nuovo sistema OMS, verificando la correttezza dei flussi di stock e ordini.",
-                "Configurazione tecnica del PIM a supporto delle attività del reparto marketing e R&D.",
-                "Assistenza tecnica ai colleghi e creazione di procedure operative per l'utilizzo degli strumenti digitali."
+                "Presidio dei flussi di integrazione tra gestionale e canali di vendita (B2B, Amazon, eBay, Mirakl): monitoraggio, manutenzione e risoluzione anomalie.",
+                "Migrazione al nuovo OMS: supporto operativo e validazione della correttezza dei flussi di stock e ordini.",
+                "Integrazione e amministrazione tecnica del CRM Creatio (permessi, dashboard, problematiche utente) e configurazione del PIM per i reparti marketing e R&D.",
+                "Formazione e assistenza ai colleghi sugli strumenti digitali, con redazione di procedure operative per standardizzarne l'utilizzo."
             ],
-            tech: "E-Commerce B2B, Creatio, Zoho, Boomi, Marketplaces, Lengow"
+            tech: " E-Commerce B2B • PIM • Creatio • Zoho • Marketplaces • Lengow"
         }
     ],
 
