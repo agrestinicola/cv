@@ -28,7 +28,7 @@ const cvData = {
 
     skills: {
         labels: ["Project management", "Tech knowledge", "Coding", "Problem Solving", "Analytics", "E-commerce"],
-        data: [80, 80, 30, 95, 65, 75]
+        data: [80, 80, 50, 95, 65, 75]
     },
 
     // --- SEZIONE 2: ESPERIENZE LAVORATIVE ---
