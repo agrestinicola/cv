@@ -89,6 +89,6 @@ const cvData = {
     // --- SEZIONE 5: LINGUE ---
     languages: [
         { name: "Italiano", level: "Madrelingua", flag: "🇮🇹" },
-        { name: "Inglese", level: "B1", flag: "🇬🇧" }
+        { name: "Inglese", level: "B2", flag: "🇬🇧" }
     ]
 };
